@@ -1,0 +1,24 @@
+{
+  "title": "Translate Text from English to Spanish",
+  "description": "Example of translating a simple English text to Spanish using the LibreTranslate API",
+  "request": {
+    "method": "POST",
+    "url": "https://libretranslate.com/translate",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "q": "Hello world!",
+      "source": "en",
+      "target": "es",
+      "format": "text",
+      "api_key": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "translatedText": "¡Hola Mundo!"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": "Batch Text Translation with Alternatives",
+  "description": "Example of translating multiple texts from English to French with alternative suggestions",
+  "request": {
+    "method": "POST",
+    "url": "https://libretranslate.com/translate",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "q": ["Hello world!", "Good morning"],
+      "source": "en",
+      "target": "fr",
+      "format": "text",
+      "alternatives": 3,
+      "api_key": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "translatedText": ["Bonjour le monde!", "Bonjour"],
+      "alternatives": [
+        ["Salut le monde!", "Allo monde!", "Coucou monde!"],
+        ["Bonne matinée", "Bon matin", "Bonjour matin"]
+      ]
+    }
+  }
+}

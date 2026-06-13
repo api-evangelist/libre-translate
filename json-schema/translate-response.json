@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://libretranslate.com/schemas/translate-response",
+  "title": "TranslateResponse",
+  "description": "Response schema for the LibreTranslate /translate endpoint",
+  "type": "object",
+  "required": ["translatedText"],
+  "properties": {
+    "translatedText": {
+      "description": "Translated text or array of translated texts",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Single translated text"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of translated texts"
+        }
+      ]
+    },
+    "detectedLanguage": {
+      "description": "Detected source language (when source was 'auto')",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "type": "string",
+              "description": "Detected language code",
+              "example": "en"
+            },
+            "confidence": {
+              "type": "number",
+              "format": "float",
+              "description": "Detection confidence (0-100)",
+              "minimum": 0,
+              "maximum": 100,
+              "example": 98.5
+            }
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string"
+              },
+              "confidence": {
+                "type": "number",
+                "format": "float",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          }
+        }
+      ]
+    },
+    "alternatives": {
+      "description": "Alternative translation suggestions",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

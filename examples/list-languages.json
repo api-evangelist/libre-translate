@@ -1,0 +1,23 @@
+{
+  "title": "List Supported Languages",
+  "description": "Example of fetching all language pairs supported by the LibreTranslate instance",
+  "request": {
+    "method": "GET",
+    "url": "https://libretranslate.com/languages"
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "code": "en",
+        "name": "English",
+        "targets": ["ar", "az", "zh", "cs", "da", "nl", "eo", "fi", "fr", "de", "el", "he", "hi", "hu", "id", "ga", "it", "ja", "ko", "fa", "pl", "pt", "ru", "sk", "es", "sv", "tr", "uk", "vi"]
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "targets": ["ar", "zh", "cs", "da", "nl", "eo", "fi", "fr", "de", "el", "he", "hi", "hu", "id", "ga", "it", "ja", "ko", "fa", "pl", "pt", "ru", "sk", "en", "sv", "tr", "uk", "vi"]
+      }
+    ]
+  }
+}

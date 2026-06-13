@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://libretranslate.com/schemas/detect-request",
+  "title": "DetectRequest",
+  "description": "Request body schema for the LibreTranslate /detect endpoint",
+  "type": "object",
+  "required": ["q"],
+  "properties": {
+    "q": {
+      "type": "string",
+      "description": "Text to detect the language of",
+      "example": "What language is this?"
+    },
+    "api_key": {
+      "type": "string",
+      "description": "API key for authentication",
+      "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  }
+}

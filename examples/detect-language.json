@@ -1,0 +1,28 @@
+{
+  "title": "Detect Language of Text",
+  "description": "Example of detecting the language of an unknown text using LibreTranslate",
+  "request": {
+    "method": "POST",
+    "url": "https://libretranslate.com/detect",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "q": "Bonjour le monde",
+      "api_key": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "language": "fr",
+        "confidence": 99.0
+      },
+      {
+        "language": "en",
+        "confidence": 12.0
+      }
+    ]
+  }
+}

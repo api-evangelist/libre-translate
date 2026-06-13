@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://libretranslate.com/schemas/translate-request",
+  "title": "TranslateRequest",
+  "description": "Request body schema for the LibreTranslate /translate endpoint",
+  "type": "object",
+  "required": ["q", "source", "target"],
+  "properties": {
+    "q": {
+      "description": "Text or array of texts to translate",
+      "oneOf": [
+        {
+          "type": "string",
+          "example": "Hello world!"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": ["Hello world!", "Goodbye world!"]
+        }
+      ]
+    },
+    "source": {
+      "type": "string",
+      "description": "Source language code or 'auto' for automatic detection",
+      "example": "en"
+    },
+    "target": {
+      "type": "string",
+      "description": "Target language code",
+      "example": "es"
+    },
+    "format": {
+      "type": "string",
+      "description": "Format of the source text",
+      "enum": ["text", "html"],
+      "default": "text"
+    },
+    "alternatives": {
+      "type": "integer",
+      "description": "Number of alternative translations to return",
+      "default": 0,
+      "minimum": 0,
+      "example": 3
+    },
+    "api_key": {
+      "type": "string",
+      "description": "API key for authentication",
+      "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  }
+}

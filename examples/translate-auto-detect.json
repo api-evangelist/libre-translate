@@ -1,0 +1,28 @@
+{
+  "title": "Translate Text with Auto Source Detection",
+  "description": "Example of translating text to German with automatic source language detection",
+  "request": {
+    "method": "POST",
+    "url": "https://libretranslate.com/translate",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "q": "The quick brown fox jumps over the lazy dog",
+      "source": "auto",
+      "target": "de",
+      "format": "text",
+      "api_key": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "translatedText": "Der schnelle braune Fuchs springt über den faulen Hund",
+      "detectedLanguage": {
+        "language": "en",
+        "confidence": 100.0
+      }
+    }
+  }
+}

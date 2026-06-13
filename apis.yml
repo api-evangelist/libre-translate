@@ -38,6 +38,20 @@ apis:
         url: https://docs.libretranslate.com
       - type: OpenAPI
         url: https://libretranslate.com/spec
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/openapi/openapi.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-request.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-response.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/detect-request.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/language.json
+      - type: Vocabulary
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/vocabulary/vocabulary.json
+      - type: JSONLD
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-ld/jsonld.json
       - type: Plans
         url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
       - type: RateLimits

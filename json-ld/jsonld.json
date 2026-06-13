@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "lt": "https://libretranslate.com/vocab#",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://libretranslate.com",
+  "name": "LibreTranslate API",
+  "description": "Free and Open Source Machine Translation API supporting 30+ languages. Powered by Argos Translate.",
+  "url": "https://libretranslate.com",
+  "documentation": "https://docs.libretranslate.com",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "termsOfService": "https://portal.libretranslate.com",
+  "provider": {
+    "@type": "Organization",
+    "name": "LibreTranslate",
+    "url": "https://libretranslate.com",
+    "sameAs": [
+      "https://github.com/LibreTranslate",
+      "https://x.com/libretranslate",
+      "https://www.linkedin.com/company/libretranslate"
+    ]
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://libretranslate.com",
+    "serviceType": "REST API"
+  },
+  "lt:endpoints": [
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/translate",
+      "name": "Translate Text",
+      "description": "Translate one or more texts from a source language to a target language",
+      "lt:method": "POST",
+      "lt:path": "/translate",
+      "lt:inputSchema": "https://libretranslate.com/schemas/translate-request",
+      "lt:outputSchema": "https://libretranslate.com/schemas/translate-response"
+    },
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/detect",
+      "name": "Detect Language",
+      "description": "Detect the language of the provided text",
+      "lt:method": "POST",
+      "lt:path": "/detect",
+      "lt:inputSchema": "https://libretranslate.com/schemas/detect-request"
+    },
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/languages",
+      "name": "List Supported Languages",
+      "description": "Retrieve all language pairs supported by this LibreTranslate instance",
+      "lt:method": "GET",
+      "lt:path": "/languages"
+    },
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/translate_file",
+      "name": "Translate File",
+      "description": "Translate a document file and return a URL to the translated output",
+      "lt:method": "POST",
+      "lt:path": "/translate_file"
+    },
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/suggest",
+      "name": "Submit Translation Suggestion",
+      "description": "Submit a user-contributed correction to improve translation quality",
+      "lt:method": "POST",
+      "lt:path": "/suggest"
+    },
+    {
+      "@type": "lt:Endpoint",
+      "@id": "https://libretranslate.com/health",
+      "name": "Health Check",
+      "description": "Check if the LibreTranslate service is healthy and running",
+      "lt:method": "GET",
+      "lt:path": "/health"
+    }
+  ],
+  "lt:openSourced": true,
+  "lt:selfHostable": true,
+  "lt:translationEngine": "Argos Translate",
+  "lt:supportedLanguageCount": 30,
+  "lt:specificationUrl": "https://libretranslate.com/spec",
+  "lt:openApiVersion": "2.0"
+}

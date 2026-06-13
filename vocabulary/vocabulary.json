@@ -1,0 +1,82 @@
+{
+  "title": "LibreTranslate API Vocabulary",
+  "description": "Domain vocabulary and key terms for the LibreTranslate machine translation API",
+  "source": "https://libretranslate.com",
+  "terms": [
+    {
+      "term": "source",
+      "definition": "The language code of the text being translated, or 'auto' to enable automatic language detection",
+      "example": "en"
+    },
+    {
+      "term": "target",
+      "definition": "The language code of the desired output language for translation",
+      "example": "es"
+    },
+    {
+      "term": "language code",
+      "definition": "A BCP 47 short code identifying a language (e.g. 'en' for English, 'es' for Spanish, 'fr' for French)",
+      "example": "en"
+    },
+    {
+      "term": "auto detection",
+      "definition": "The capability to automatically identify the source language of input text without the caller specifying it; triggered by passing 'auto' as the source parameter",
+      "example": "source=auto"
+    },
+    {
+      "term": "confidence",
+      "definition": "A numeric score (0–100) indicating how certain the model is about a detected language",
+      "example": "98.5"
+    },
+    {
+      "term": "alternatives",
+      "definition": "Additional candidate translations returned alongside the primary translation; requested via the 'alternatives' integer parameter",
+      "example": "3"
+    },
+    {
+      "term": "format",
+      "definition": "The markup format of input text; either 'text' for plain text or 'html' to preserve HTML tags during translation",
+      "example": "text"
+    },
+    {
+      "term": "api_key",
+      "definition": "A UUID token issued by the LibreTranslate portal that authenticates API requests and grants access to higher rate-limit tiers",
+      "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    },
+    {
+      "term": "Argos Translate",
+      "definition": "The open-source offline translation library that powers LibreTranslate, based on the OpenNMT neural machine translation framework",
+      "example": "https://github.com/argosopentech/argos-translate"
+    },
+    {
+      "term": "self-hosted",
+      "definition": "A deployment mode in which the LibreTranslate server is run on private infrastructure, requiring no external network calls for translation",
+      "example": "docker run -ti --rm -p 5000:5000 libretranslate/libretranslate"
+    },
+    {
+      "term": "translate_file",
+      "definition": "The endpoint that accepts a document file (PDF, DOCX, etc.) as a multipart upload and returns a URL to the translated output file",
+      "example": "POST /translate_file"
+    },
+    {
+      "term": "suggestion",
+      "definition": "A user-submitted correction or improvement to an existing translation pair, submitted via the /suggest endpoint to improve future model quality",
+      "example": "POST /suggest"
+    },
+    {
+      "term": "charLimit",
+      "definition": "The maximum number of characters accepted per translation request on a given instance; -1 indicates no limit",
+      "example": "-1"
+    },
+    {
+      "term": "rate limit",
+      "definition": "A cap on the number of API requests allowed within a time window; LibreTranslate responds with HTTP 429 when exceeded",
+      "example": "429 Too Many Requests"
+    },
+    {
+      "term": "AGPL-3.0",
+      "definition": "The GNU Affero General Public License v3 under which LibreTranslate is released, requiring downstream modifications to also be open-sourced",
+      "example": "https://www.gnu.org/licenses/agpl-3.0.html"
+    }
+  ]
+}

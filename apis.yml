@@ -1,0 +1,75 @@
+aid: libre-translate
+name: LibreTranslate
+description: Free and open-source machine translation REST API supporting 30+ languages
+  with self-hostable deployment and no third-party service dependency. Powered by
+  the open-source Argos Translate library, LibreTranslate provides endpoints for
+  text translation, language detection, file translation, and translation suggestions.
+  Deployable on-premise for full offline capability or accessible via the managed
+  hosted service.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Translation
+  - Machine Translation
+  - Natural Language Processing
+  - Open Source
+  - Self-Hosted
+apis:
+  - aid: libre-translate:libre-translate-api
+    name: LibreTranslate API
+    description: REST API for free and open-source machine translation supporting
+      30+ languages. Provides endpoints for translating text and files, detecting
+      source language, listing supported languages, and submitting translation suggestions.
+      Can be self-hosted for unlimited offline use or accessed through the managed
+      portal with API key authentication.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://libretranslate.com
+    baseURL: https://libretranslate.com
+    tags:
+      - Translation
+      - Machine Translation
+      - Language Detection
+      - Open Source
+    properties:
+      - type: Documentation
+        url: https://docs.libretranslate.com
+      - type: OpenAPI
+        url: https://libretranslate.com/spec
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/rate-limits/rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
+    contact:
+      - FN: LibreTranslate Community
+        url: https://community.libretranslate.com
+common:
+  - type: Website
+    url: https://libretranslate.com
+  - type: Documentation
+    url: https://docs.libretranslate.com
+  - type: GitHubOrg
+    url: https://github.com/LibreTranslate
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/libretranslate
+  - type: Blog
+    url: https://community.libretranslate.com
+  - type: Pricing
+    url: https://portal.libretranslate.com
+  - type: StatusPage
+    url: https://status.libretranslate.com
+  - type: X
+    url: https://x.com/libretranslate
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

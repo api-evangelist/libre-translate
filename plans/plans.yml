@@ -1,0 +1,91 @@
+plans:
+  - name: Self-Hosted (Free)
+    description: Deploy LibreTranslate on your own infrastructure at no cost. Unlimited
+      translations with no per-character charges and no monthly limits. Text never
+      leaves your server. Requires managing your own infrastructure.
+    url: https://github.com/LibreTranslate/LibreTranslate
+    price: 0.00
+    currency: USD
+    billingCycle: none
+    rateLimit:
+      requests: unlimited
+      period: configurable
+      notes: Rate limits are set by the administrator via --req-limit flag. Default
+        is configurable per deployment.
+    features:
+      - Unlimited translations
+      - Full offline capability
+      - No data leaves your server
+      - Self-managed API key issuance
+      - Configurable per-user rate limits
+      - Configurable character limits per API key
+      - AGPLv3 open-source license
+      - 30+ supported languages
+      - Text and file translation
+      - Language detection
+  - name: Pro (Managed)
+    description: Professionally managed hosted LibreTranslate service with immediate
+      API access and no infrastructure maintenance required. Supports the open-source
+      LibreTranslate project.
+    url: https://portal.libretranslate.com
+    price: 29.00
+    currency: USD
+    billingCycle: monthly
+    rateLimit:
+      burstRequests: 80
+      burstPeriod: minute
+      sustainedRequests: 1200
+      sustainedPeriod: hour
+      characterLimit: 2000
+      notes: Up to 80 translations per minute burst; approximately 20 per minute
+        sustained (1,200 per hour). 2,000 character limit per call.
+    features:
+      - Immediate API access via portal.libretranslate.com
+      - No infrastructure setup or maintenance
+      - Up to 80 translations/minute (burst)
+      - Up to 1,200 translations/hour (sustained)
+      - 2,000 characters per call limit
+      - Unlimited total translations
+      - 7-day money-back guarantee
+      - Supports LibreTranslate open-source project
+  - name: Business (Managed)
+    description: Higher-throughput managed LibreTranslate service for business use
+      cases requiring more frequent translation requests. Includes all Pro features
+      with increased rate limits.
+    url: https://portal.libretranslate.com
+    price: 58.00
+    currency: USD
+    billingCycle: monthly
+    rateLimit:
+      burstRequests: 200
+      burstPeriod: minute
+      sustainedRequests: 3000
+      sustainedPeriod: hour
+      characterLimit: 2000
+      notes: Up to 200 translations per minute burst; approximately 50 per minute
+        sustained (3,000 per hour). 2,000 character limit per call.
+    features:
+      - Immediate API access via portal.libretranslate.com
+      - No infrastructure setup or maintenance
+      - Up to 200 translations/minute (burst)
+      - Up to 3,000 translations/hour (sustained)
+      - 2,000 characters per call limit
+      - Unlimited total translations
+      - 7-day money-back guarantee
+      - Supports LibreTranslate open-source project
+  - name: Custom (Enterprise)
+    description: Custom plans available for organizations with requirements beyond
+      the Business tier, including higher request rates or increased character limits.
+      Contact support to discuss needs and pricing.
+    url: https://portal.libretranslate.com
+    price: null
+    currency: USD
+    billingCycle: custom
+    rateLimit:
+      notes: Custom rate limits negotiated per agreement. Higher request/minute and
+        character limits available beyond Business tier.
+    features:
+      - Custom request rate limits
+      - Custom character limits
+      - Dedicated support
+      - Negotiated pricing

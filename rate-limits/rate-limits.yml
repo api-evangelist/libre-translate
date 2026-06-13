@@ -1,0 +1,66 @@
+rateLimits:
+  description: LibreTranslate rate limits vary by deployment mode. Self-hosted instances
+    allow administrator-configured limits per user or API key. The managed hosted
+    service enforces tier-based limits applied per API key.
+  reference: https://docs.libretranslate.com/guides/manage_api_keys/
+  tiers:
+    - tier: Self-Hosted (No API Key)
+      description: Default rate limit for unauthenticated requests on a self-hosted
+        instance. Administrators configure the --req-limit flag at startup.
+      requestLimit: configurable
+      period: minute
+      characterLimit: configurable
+      notes: Set via --req-limit CLI flag. Can be 0 (unlimited) or any integer representing
+        requests per minute. Character limit set via --char-limit flag.
+    - tier: Self-Hosted (With API Key)
+      description: Per-user API key rate limits on self-hosted instances. Administrators
+        issue keys with specific limits using ltmanage.
+      requestLimit: configurable per key
+      period: minute
+      characterLimit: configurable per key
+      exampleCommands:
+        - ltmanage keys add 120
+        - ltmanage keys add 120 --char-limit 5000
+      notes: Each API key can have its own requests-per-minute limit and optional
+        character limit override. Keys managed via ltmanage CLI tool.
+    - tier: Managed Pro
+      description: Rate limits for the Pro managed hosting tier at portal.libretranslate.com.
+      burstRequestLimit: 80
+      burstPeriod: minute
+      sustainedRequestLimit: 20
+      sustainedPeriod: minute
+      sustainedEquivalent: 1200
+      sustainedEquivalentPeriod: hour
+      characterLimit: 2000
+      totalLimit: unlimited
+      notes: Burst capacity of 80 requests per minute for short periods. Sustained
+        continuous usage runs at approximately 20 requests per minute (1,200 per hour).
+        Each translation call limited to 2,000 characters.
+    - tier: Managed Business
+      description: Rate limits for the Business managed hosting tier at portal.libretranslate.com.
+      burstRequestLimit: 200
+      burstPeriod: minute
+      sustainedRequestLimit: 50
+      sustainedPeriod: minute
+      sustainedEquivalent: 3000
+      sustainedEquivalentPeriod: hour
+      characterLimit: 2000
+      totalLimit: unlimited
+      notes: Burst capacity of 200 requests per minute for short periods. Sustained
+        continuous usage runs at approximately 50 requests per minute (3,000 per hour).
+        Each translation call limited to 2,000 characters.
+    - tier: Managed Custom/Enterprise
+      description: Custom rate limits available for organizations with higher throughput
+        requirements. Negotiated on a case-by-case basis.
+      requestLimit: custom
+      characterLimit: custom
+      notes: Contact support at portal.libretranslate.com for custom rate limit agreements.
+  exemptions:
+    - endpoint: GET /languages
+      description: The /languages endpoint is exempt from rate limiting as it only
+        returns static metadata about supported languages.
+  enforcement:
+    method: API key
+    notes: Rate limiting is enforced per API key on both self-hosted and managed instances.
+      Unauthenticated requests on the public libretranslate.com instance are temporarily
+      restricted to users with valid API keys due to bot abuse prevention.

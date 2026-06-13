@@ -1,0 +1,55 @@
+finops:
+  description: LibreTranslate offers a unique cost model compared to proprietary translation
+    APIs. As an open-source project, self-hosting is free with infrastructure costs
+    being the only expense. The managed service provides predictable flat-rate monthly
+    billing with no per-character or per-request charges.
+  reference: https://portal.libretranslate.com
+  costModel:
+    type: hybrid
+    options:
+      - name: Self-Hosted
+        type: infrastructure-cost
+        description: Zero software licensing cost. Operators pay only for their own
+          compute, storage, and bandwidth. Suitable for organizations with existing
+          infrastructure or those prioritizing data sovereignty and unlimited volume.
+        softwareCost: 0.00
+        infrastructureCost: variable
+        notes: Requires Python environment or Docker. Language model packages downloaded
+          separately. No per-translation charges regardless of volume.
+      - name: Managed Hosting
+        type: flat-rate-subscription
+        description: Predictable monthly subscription with no per-request or per-character
+          charges. No infrastructure management required. Two fixed tiers available.
+        tiers:
+          - name: Pro
+            monthlyUSD: 29.00
+            annualizedUSD: 348.00
+            perRequestCost: 0.00
+            perCharacterCost: 0.00
+            notes: Unlimited total translations. 2,000 character limit per call.
+              Up to 80 req/min burst, ~1,200/hour sustained.
+          - name: Business
+            monthlyUSD: 58.00
+            annualizedUSD: 696.00
+            perRequestCost: 0.00
+            perCharacterCost: 0.00
+            notes: Unlimited total translations. 2,000 character limit per call.
+              Up to 200 req/min burst, ~3,000/hour sustained.
+  billing:
+    currency: USD
+    cycles:
+      - monthly
+    refundPolicy: 7-day money-back guarantee on managed tiers
+    notes: No setup fees. Cancel anytime. Custom pricing available for enterprise
+      needs beyond the Business tier.
+  costComparison:
+    description: Compared to proprietary translation APIs that charge per character
+      (e.g., $0.000015–$0.00002 per character), LibreTranslate's flat-rate model
+      offers significant savings at scale. At 1M characters/month, proprietary services
+      may cost $15–$20 vs. $29 flat for Pro (with no overage risk).
+    notes: Self-hosted eliminates per-character costs entirely for organizations able
+      to manage infrastructure.
+  funding:
+    openCollective: https://opencollective.com/libretranslate
+    notes: LibreTranslate is supported by its community via OpenCollective. Purchasing
+      managed API keys also directly funds ongoing open-source development.

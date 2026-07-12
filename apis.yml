@@ -62,6 +62,8 @@ apis:
       - FN: LibreTranslate Community
         url: https://community.libretranslate.com
 common:
+  - type: DomainSecurity
+    url: security/libre-translate-domain-security.yml
   - type: Website
     url: https://libretranslate.com
   - type: Documentation

@@ -1,0 +1,138 @@
+swagger: '2.0'
+info:
+  title: LibreTranslate misc API
+  version: 1.9.6
+  description: Free and Open Source Machine Translation API.
+  license:
+    name: AGPL-3.0
+basePath: /
+tags:
+- name: misc
+paths:
+  /health:
+    get:
+      summary: Health Check
+      tags:
+      - misc
+      responses:
+        '200':
+          description: Service is healthy
+          schema:
+            $ref: '#/definitions/health-response'
+  /suggest:
+    post:
+      summary: Submit a Suggestion to Improve a Translation
+      tags:
+      - misc
+      parameters:
+      - name: q
+        in: formData
+        required: true
+        description: Original text
+        schema:
+          type: string
+          example: Hello world!
+      - name: s
+        in: formData
+        required: true
+        description: Suggested translation
+        schema:
+          type: string
+          example: ¡Hola mundo!
+      - name: source
+        in: formData
+        required: true
+        description: Language of original text
+        schema:
+          type: string
+          example: en
+      - name: target
+        in: formData
+        required: true
+        description: Language of suggested translation
+        schema:
+          type: string
+          example: es
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/suggest-response'
+        '403':
+          description: Not authorized
+          schema:
+            $ref: '#/definitions/error-response'
+  /frontend/settings:
+    get:
+      summary: Retrieve Frontend Settings
+      tags:
+      - misc
+      responses:
+        '200':
+          description: frontend settings
+          schema:
+            $ref: '#/definitions/frontend-settings'
+definitions:
+  suggest-response:
+    type: object
+    properties:
+      success:
+        type: boolean
+        description: Whether submission was successful
+  frontend-settings:
+    type: object
+    properties:
+      apiKeys:
+        type: boolean
+        description: Whether the API key database is enabled.
+      keyRequired:
+        type: boolean
+        description: Whether an API key is required.
+      charLimit:
+        type: integer
+        description: Character input limit for this language (-1 indicates no limit)
+      frontendTimeout:
+        type: integer
+        description: Frontend translation timeout
+      suggestions:
+        type: boolean
+        description: Whether submitting suggestions is enabled.
+      supportedFilesFormat:
+        type: array
+        description: Supported files format
+        items:
+          type: string
+      language:
+        type: object
+        properties:
+          source:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Language code
+              name:
+                type: string
+                description: Human-readable language name (in English)
+          target:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Language code
+              name:
+                type: string
+                description: Human-readable language name (in English)
+  health-response:
+    type: object
+    properties:
+      status:
+        type: string
+        description: Health status
+        example: ok
+  error-response:
+    type: object
+    properties:
+      error:
+        type: string
+        description: Error message

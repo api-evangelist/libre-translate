@@ -6,7 +6,19 @@ description: Free and open-source machine translation REST API supporting 30+ la
   text translation, language detection, file translation, and translation suggestions.
   Deployable on-premise for full offline capability or accessible via the managed
   hosted service.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/libre-translate.png
 url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -18,49 +30,84 @@ tags:
   - Open Source
   - Self-Hosted
 apis:
-  - aid: libre-translate:libre-translate-api
-    name: LibreTranslate API
-    description: REST API for free and open-source machine translation supporting
-      30+ languages. Provides endpoints for translating text and files, detecting
-      source language, listing supported languages, and submitting translation suggestions.
-      Can be self-hosted for unlimited offline use or accessed through the managed
-      portal with API key authentication.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://libretranslate.com
-    baseURL: https://libretranslate.com
-    tags:
-      - Translation
-      - Machine Translation
-      - Language Detection
-      - Open Source
-    properties:
-      - type: Documentation
-        url: https://docs.libretranslate.com
-      - type: OpenAPI
-        url: https://libretranslate.com/spec
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/openapi/openapi.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-request.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-response.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/detect-request.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/language.json
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/vocabulary/vocabulary.json
-      - type: JSONLD
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-ld/jsonld.json
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/rate-limits/rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
-    contact:
-      - FN: LibreTranslate Community
-        url: https://community.libretranslate.com
+- aid: libre-translate:libre-translate-misc-api
+  name: LibreTranslate misc API
+  description: The misc API from LibreTranslate — 3 operation(s) for misc.
+  humanURL: https://libretranslate.com
+  baseURL: https://libretranslate.com
+  tags:
+  - misc
+  properties:
+  - type: OpenAPI
+    url: openapi/libre-translate-misc-api-openapi.yml
+  - type: Documentation
+    url: https://docs.libretranslate.com
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-request.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-response.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/detect-request.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/language.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/vocabulary/vocabulary.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-ld/jsonld.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
+- aid: libre-translate:libre-translate-translate-api
+  name: LibreTranslate translate API
+  description: The translate API from LibreTranslate — 4 operation(s) for translate.
+  humanURL: https://libretranslate.com
+  baseURL: https://libretranslate.com
+  tags:
+  - translate
+  properties:
+  - type: OpenAPI
+    url: openapi/libre-translate-translate-api-openapi.yml
+  - type: Documentation
+    url: https://docs.libretranslate.com
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-request.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/translate-response.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/detect-request.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-schema/language.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/vocabulary/vocabulary.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/json-ld/jsonld.json
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/plans/plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/rate-limits/rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/libre-translate-agentic-access.yml

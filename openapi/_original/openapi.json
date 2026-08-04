@@ -1,0 +1,601 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LibreTranslate",
+    "version": "1.9.6",
+    "description": "Free and Open Source Machine Translation API.",
+    "license": {
+      "name": "AGPL-3.0"
+    }
+  },
+  "basePath": "/",
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "tags": ["misc"],
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "schema": {
+              "$ref": "#/definitions/health-response"
+            }
+          }
+        }
+      }
+    },
+    "/languages": {
+      "get": {
+        "summary": "Get Supported Languages",
+        "tags": ["translate"],
+        "responses": {
+          "200": {
+            "description": "List of supported languages",
+            "schema": {
+              "$ref": "#/definitions/languages"
+            }
+          }
+        }
+      }
+    },
+    "/detect": {
+      "post": {
+        "summary": "Detect Language of Text",
+        "tags": ["translate"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "formData",
+            "required": true,
+            "description": "Text to detect",
+            "schema": {
+              "type": "string",
+              "example": "What language is this?"
+            }
+          },
+          {
+            "name": "api_key",
+            "in": "formData",
+            "required": false,
+            "description": "API key",
+            "schema": {
+              "type": "string",
+              "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detections",
+            "schema": {
+              "$ref": "#/definitions/detections"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "403": {
+            "description": "Banned",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "429": {
+            "description": "Slow down",
+            "schema": {
+              "$ref": "#/definitions/error-slow-down"
+            }
+          },
+          "500": {
+            "description": "Detection error",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        }
+      }
+    },
+    "/translate": {
+      "post": {
+        "summary": "Translate Text",
+        "tags": ["translate"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "formData",
+            "required": true,
+            "description": "Text(s) to translate",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "example": "Hello world!"
+                },
+                {
+                  "type": "array",
+                  "example": ["Hello world!"]
+                }
+              ]
+            }
+          },
+          {
+            "name": "source",
+            "in": "formData",
+            "required": true,
+            "description": "Source language code or \"auto\" for auto detection",
+            "schema": {
+              "type": "string",
+              "example": "en"
+            }
+          },
+          {
+            "name": "target",
+            "in": "formData",
+            "required": true,
+            "description": "Target language code",
+            "schema": {
+              "type": "string",
+              "example": "es"
+            }
+          },
+          {
+            "name": "format",
+            "in": "formData",
+            "required": false,
+            "description": "Format of source text:\n * `text` - Plain text\n * `html` - HTML markup\n",
+            "schema": {
+              "type": "string",
+              "default": "text",
+              "enum": ["text", "html"],
+              "example": "text"
+            }
+          },
+          {
+            "name": "alternatives",
+            "in": "formData",
+            "required": false,
+            "description": "Preferred number of alternative translations",
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "example": 3
+            }
+          },
+          {
+            "name": "api_key",
+            "in": "formData",
+            "required": false,
+            "description": "API key",
+            "schema": {
+              "type": "string",
+              "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Translation",
+            "schema": {
+              "$ref": "#/definitions/translate"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "403": {
+            "description": "Banned",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "429": {
+            "description": "Slow down",
+            "schema": {
+              "$ref": "#/definitions/error-slow-down"
+            }
+          },
+          "500": {
+            "description": "Translation error",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        }
+      }
+    },
+    "/translate_file": {
+      "post": {
+        "summary": "Translate a File",
+        "tags": ["translate"],
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "file",
+            "description": "File to translate"
+          },
+          {
+            "name": "source",
+            "in": "formData",
+            "required": true,
+            "description": "Source language code or \"auto\" for auto detection",
+            "schema": {
+              "type": "string",
+              "example": "en"
+            }
+          },
+          {
+            "name": "target",
+            "in": "formData",
+            "required": true,
+            "description": "Target language code",
+            "schema": {
+              "type": "string",
+              "example": "es"
+            }
+          },
+          {
+            "name": "api_key",
+            "in": "formData",
+            "required": false,
+            "description": "API key",
+            "schema": {
+              "type": "string",
+              "example": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Translated file",
+            "schema": {
+              "$ref": "#/definitions/translate-file"
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "403": {
+            "description": "Banned",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          },
+          "429": {
+            "description": "Slow down",
+            "schema": {
+              "$ref": "#/definitions/error-slow-down"
+            }
+          },
+          "500": {
+            "description": "Translation error",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        }
+      }
+    },
+    "/suggest": {
+      "post": {
+        "summary": "Submit a Suggestion to Improve a Translation",
+        "tags": ["misc"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "formData",
+            "required": true,
+            "description": "Original text",
+            "schema": {
+              "type": "string",
+              "example": "Hello world!"
+            }
+          },
+          {
+            "name": "s",
+            "in": "formData",
+            "required": true,
+            "description": "Suggested translation",
+            "schema": {
+              "type": "string",
+              "example": "¡Hola mundo!"
+            }
+          },
+          {
+            "name": "source",
+            "in": "formData",
+            "required": true,
+            "description": "Language of original text",
+            "schema": {
+              "type": "string",
+              "example": "en"
+            }
+          },
+          {
+            "name": "target",
+            "in": "formData",
+            "required": true,
+            "description": "Language of suggested translation",
+            "schema": {
+              "type": "string",
+              "example": "es"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/suggest-response"
+            }
+          },
+          "403": {
+            "description": "Not authorized",
+            "schema": {
+              "$ref": "#/definitions/error-response"
+            }
+          }
+        }
+      }
+    },
+    "/frontend/settings": {
+      "get": {
+        "summary": "Retrieve Frontend Settings",
+        "tags": ["misc"],
+        "responses": {
+          "200": {
+            "description": "frontend settings",
+            "schema": {
+              "$ref": "#/definitions/frontend-settings"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "health-response": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Health status",
+          "example": "ok"
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Supported language",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Language code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable language name (in English)"
+          },
+          "targets": {
+            "type": "array",
+            "description": "Supported target language codes",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "detections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language code",
+            "example": "en"
+          },
+          "confidence": {
+            "type": "number",
+            "format": "float",
+            "description": "Confidence value",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 100
+          }
+        }
+      }
+    },
+    "translate": {
+      "type": "object",
+      "required": ["translatedText"],
+      "properties": {
+        "translatedText": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ],
+          "description": "Translated text(s)"
+        },
+        "detectedLanguage": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "language": {
+                  "type": "string",
+                  "description": "Language code"
+                },
+                "confidence": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "Confidence value",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "example": 100
+                }
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "Language code"
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "Confidence value",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "example": 100
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "alternatives": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "description": "Alternative translations"
+        }
+      }
+    },
+    "translate-file": {
+      "type": "object",
+      "properties": {
+        "translatedFileUrl": {
+          "type": "string",
+          "description": "Translated file url"
+        }
+      }
+    },
+    "error-response": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error message"
+        }
+      }
+    },
+    "error-slow-down": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Reason for slow down"
+        }
+      }
+    },
+    "suggest-response": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether submission was successful"
+        }
+      }
+    },
+    "frontend-settings": {
+      "type": "object",
+      "properties": {
+        "apiKeys": {
+          "type": "boolean",
+          "description": "Whether the API key database is enabled."
+        },
+        "keyRequired": {
+          "type": "boolean",
+          "description": "Whether an API key is required."
+        },
+        "charLimit": {
+          "type": "integer",
+          "description": "Character input limit for this language (-1 indicates no limit)"
+        },
+        "frontendTimeout": {
+          "type": "integer",
+          "description": "Frontend translation timeout"
+        },
+        "suggestions": {
+          "type": "boolean",
+          "description": "Whether submitting suggestions is enabled."
+        },
+        "supportedFilesFormat": {
+          "type": "array",
+          "description": "Supported files format",
+          "items": {
+            "type": "string"
+          }
+        },
+        "language": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Language code"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable language name (in English)"
+                }
+              }
+            },
+            "target": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Language code"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable language name (in English)"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

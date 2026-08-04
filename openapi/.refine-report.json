@@ -1,0 +1,16 @@
+{
+  "provider": "libre-translate",
+  "sources": [
+    "libre-translate-misc-api-openapi.yml",
+    "libre-translate-translate-api-openapi.yml"
+  ],
+  "outputs": [
+    "libre-translate-misc-api-openapi.yml",
+    "libre-translate-translate-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

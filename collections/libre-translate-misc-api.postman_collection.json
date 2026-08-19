@@ -1,0 +1,347 @@
+{
+  "item": [
+    {
+      "id": "55b6df1d-2454-4a8b-9cf2-926da171a954",
+      "name": "misc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8e51b56-dce7-4070-8a5f-eb7b981b70f3",
+          "name": "Health Check",
+          "request": {
+            "name": "Health Check",
+            "description": {},
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30828aab-cdcf-46f0-84a3-ddb7f1c5dd47",
+              "name": "Service is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34592230-e1a7-4490-bc64-d79ac2fd73df",
+          "name": "Submit a Suggestion to Improve a Translation",
+          "request": {
+            "name": "Submit a Suggestion to Improve a Translation",
+            "description": {},
+            "url": {
+              "path": [
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "s"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "r"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "i"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "n"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "g"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f99fd73-26d1-49d2-bf01-bc56281d8e16",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "s"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cc1119d-2d89-4c9d-ac9d-e0ad4e7ce978",
+              "name": "Not authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "e"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "s"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9eb0fba-cd13-4f5e-9e43-4174138e877a",
+          "name": "Retrieve Frontend Settings",
+          "request": {
+            "name": "Retrieve Frontend Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "frontend",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "300b3b30-c917-42b4-a4c4-5fd235738e33",
+              "name": "frontend settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "frontend",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"apiKeys\": false,\n  \"keyRequired\": true,\n  \"charLimit\": 7300,\n  \"frontendTimeout\": 9214,\n  \"suggestions\": false,\n  \"supportedFilesFormat\": [\n    \"string\",\n    \"string\"\n  ],\n  \"language\": {\n    \"source\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    \"target\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a9134ebc-2a88-4fe7-8d3c-62df9be41190",
+    "name": "LibreTranslate misc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free and Open Source Machine Translation API.",
+      "type": "text/plain"
+    }
+  }
+}

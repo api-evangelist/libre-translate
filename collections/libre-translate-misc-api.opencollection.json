@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LibreTranslate misc API",
+    "version": "1.9.6"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "misc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/health"
+          },
+          "docs": "Health Check"
+        },
+        {
+          "info": {
+            "name": "Submit a Suggestion to Improve a Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/suggest"
+          },
+          "docs": "Submit a Suggestion to Improve a Translation"
+        },
+        {
+          "info": {
+            "name": "Retrieve Frontend Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/frontend/settings"
+          },
+          "docs": "Retrieve Frontend Settings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

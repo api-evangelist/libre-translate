@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LibreTranslate misc translate API",
+    "version": "1.9.6"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "translate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Supported Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/languages"
+          },
+          "docs": "Get Supported Languages"
+        },
+        {
+          "info": {
+            "name": "Detect Language of Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/detect"
+          },
+          "docs": "Detect Language of Text"
+        },
+        {
+          "info": {
+            "name": "Translate Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/translate"
+          },
+          "docs": "Translate Text"
+        },
+        {
+          "info": {
+            "name": "Translate a File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/translate_file"
+          },
+          "docs": "Translate a File"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

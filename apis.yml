@@ -26,6 +26,12 @@ tags:
 - Translation
 - Machine Translation
 - Natural Language Processing
+- Open-Source
+- Self-Hosted
+tags_raw:
+- Translation
+- Machine Translation
+- Natural Language Processing
 - Open Source
 - Self-Hosted
 apis:
@@ -34,7 +40,8 @@ apis:
   description: The misc API from LibreTranslate — 3 operation(s) for misc.
   humanURL: https://libretranslate.com
   baseURL: https://libretranslate.com
-  tags:
+  tags: []
+  tags_raw:
   - misc
   properties:
   - type: OpenAPI
@@ -65,6 +72,8 @@ apis:
   humanURL: https://libretranslate.com
   baseURL: https://libretranslate.com
   tags:
+  - Translate
+  tags_raw:
   - translate
   properties:
   - type: OpenAPI

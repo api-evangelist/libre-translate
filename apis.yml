@@ -5,6 +5,18 @@ description: Free and open-source machine translation REST API supporting 30+ la
   LibreTranslate provides endpoints for text translation, language detection, file translation, and translation
   suggestions. Deployable on-premise for full offline capability or accessible via the managed hosted
   service.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown

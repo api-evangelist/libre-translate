@@ -84,7 +84,7 @@ apis:
   humanURL: https://libretranslate.com
   baseURL: https://libretranslate.com
   tags:
-  - Translate
+  - translate
   tags_raw:
   - translate
   properties:

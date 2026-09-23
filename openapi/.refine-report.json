@@ -1,8 +1,7 @@
 {
   "provider": "libre-translate",
   "sources": [
-    "libre-translate-misc-api-openapi.yml",
-    "libre-translate-translate-api-openapi.yml"
+    "_original/openapi.json"
   ],
   "outputs": [
     "libre-translate-misc-api-openapi.yml",
@@ -11,6 +10,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "openapi.json: declared missing tag: misc",
+    "openapi.json: declared missing tag: translate",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "libre-translate-misc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "libre-translate-translate-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

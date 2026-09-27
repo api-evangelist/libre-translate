@@ -200,6 +200,12 @@ components:
         translatedFileUrl:
           type: string
           description: Translated file url
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
     languages:
       type: array
       items:
@@ -217,6 +223,12 @@ components:
             description: Supported target language codes
             items:
               type: string
+    error-slow-down:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Reason for slow down
     detections:
       type: array
       items:
@@ -233,12 +245,6 @@ components:
             minimum: 0
             maximum: 100
             example: 100
-    error-response:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
     translate:
       type: object
       required:
@@ -288,9 +294,3 @@ components:
               items:
                 type: string
           description: Alternative translations
-    error-slow-down:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Reason for slow down

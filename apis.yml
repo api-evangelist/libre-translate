@@ -38,7 +38,7 @@ tags:
 - Translation
 - Machine Translation
 - Natural Language Processing
-- Open-Source
+- Open Source
 - Self-Hosted
 tags_raw:
 - Translation
@@ -46,12 +46,12 @@ tags_raw:
 - Natural Language Processing
 - Open Source
 - Self-Hosted
+- Open-Source
 apis:
 - aid: libre-translate:libre-translate-misc-api
-  name: LibreTranslate misc API
+  name: LibreTranslate Misc API
   description: The misc API from LibreTranslate — 3 operation(s) for misc.
   humanURL: https://libretranslate.com
-  baseURL: https://libretranslate.com
   tags: []
   tags_raw:
   - misc
@@ -79,10 +79,9 @@ apis:
   - type: FinOps
     url: https://raw.githubusercontent.com/api-evangelist/libre-translate/refs/heads/main/finops/finops.yml
 - aid: libre-translate:libre-translate-translate-api
-  name: LibreTranslate translate API
+  name: LibreTranslate Translate API
   description: The translate API from LibreTranslate — 4 operation(s) for translate.
   humanURL: https://libretranslate.com
-  baseURL: https://libretranslate.com
   tags:
   - Translate
   tags_raw:

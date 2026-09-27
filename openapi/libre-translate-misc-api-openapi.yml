@@ -79,25 +79,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    error-response:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-    suggest-response:
-      type: object
-      properties:
-        success:
-          type: boolean
-          description: Whether submission was successful
-    health-response:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Health status
-          example: ok
     frontend-settings:
       type: object
       properties:
@@ -142,3 +123,22 @@ components:
                 name:
                   type: string
                   description: Human-readable language name (in English)
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+    health-response:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Health status
+          example: ok
+    suggest-response:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether submission was successful

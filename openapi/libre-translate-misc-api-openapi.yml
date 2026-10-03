@@ -123,12 +123,6 @@ components:
                 name:
                   type: string
                   description: Human-readable language name (in English)
-    error-response:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
     health-response:
       type: object
       properties:
@@ -136,6 +130,12 @@ components:
           type: string
           description: Health status
           example: ok
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
     suggest-response:
       type: object
       properties:

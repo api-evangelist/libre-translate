@@ -206,45 +206,12 @@ components:
         error:
           type: string
           description: Reason for slow down
-    languages:
-      type: array
-      items:
-        type: object
-        description: Supported language
-        properties:
-          code:
-            type: string
-            description: Language code
-          name:
-            type: string
-            description: Human-readable language name (in English)
-          targets:
-            type: array
-            description: Supported target language codes
-            items:
-              type: string
     error-response:
       type: object
       properties:
         error:
           type: string
           description: Error message
-    detections:
-      type: array
-      items:
-        type: object
-        properties:
-          language:
-            type: string
-            description: Language code
-            example: en
-          confidence:
-            type: number
-            format: float
-            description: Confidence value
-            minimum: 0
-            maximum: 100
-            example: 100
     translate:
       type: object
       required:
@@ -294,3 +261,36 @@ components:
               items:
                 type: string
           description: Alternative translations
+    languages:
+      type: array
+      items:
+        type: object
+        description: Supported language
+        properties:
+          code:
+            type: string
+            description: Language code
+          name:
+            type: string
+            description: Human-readable language name (in English)
+          targets:
+            type: array
+            description: Supported target language codes
+            items:
+              type: string
+    detections:
+      type: array
+      items:
+        type: object
+        properties:
+          language:
+            type: string
+            description: Language code
+            example: en
+          confidence:
+            type: number
+            format: float
+            description: Confidence value
+            minimum: 0
+            maximum: 100
+            example: 100

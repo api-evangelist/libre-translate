@@ -2,8 +2,11 @@
   "repo": "libre-translate",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/libretranslate",
-      "error": "HTTPError"
+      "source": "https://community.libretranslate.com",
+      "feed_url": "https://community.libretranslate.com/posts.rss",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     },
     {
       "source": "https://community.libretranslate.com/latest.rss",
@@ -13,7 +16,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 70,
   "feed_nature": "support-community",
   "feed_nature_basis": "discourse_topic",

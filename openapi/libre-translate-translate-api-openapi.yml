@@ -194,24 +194,29 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    translate-file:
-      type: object
-      properties:
-        translatedFileUrl:
-          type: string
-          description: Translated file url
+    languages:
+      type: array
+      items:
+        type: object
+        description: Supported language
+        properties:
+          code:
+            type: string
+            description: Language code
+          name:
+            type: string
+            description: Human-readable language name (in English)
+          targets:
+            type: array
+            description: Supported target language codes
+            items:
+              type: string
     error-slow-down:
       type: object
       properties:
         error:
           type: string
           description: Reason for slow down
-    error-response:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
     translate:
       type: object
       required:
@@ -261,23 +266,6 @@ components:
               items:
                 type: string
           description: Alternative translations
-    languages:
-      type: array
-      items:
-        type: object
-        description: Supported language
-        properties:
-          code:
-            type: string
-            description: Language code
-          name:
-            type: string
-            description: Human-readable language name (in English)
-          targets:
-            type: array
-            description: Supported target language codes
-            items:
-              type: string
     detections:
       type: array
       items:
@@ -294,3 +282,15 @@ components:
             minimum: 0
             maximum: 100
             example: 100
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+    translate-file:
+      type: object
+      properties:
+        translatedFileUrl:
+          type: string
+          description: Translated file url

@@ -79,18 +79,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    suggest-response:
-      type: object
-      properties:
-        success:
-          type: boolean
-          description: Whether submission was successful
-    error-response:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
     health-response:
       type: object
       properties:
@@ -98,6 +86,18 @@ components:
           type: string
           description: Health status
           example: ok
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+    suggest-response:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether submission was successful
     frontend-settings:
       type: object
       properties:
